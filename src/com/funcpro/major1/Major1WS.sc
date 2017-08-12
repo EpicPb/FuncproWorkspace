@@ -5,12 +5,13 @@ object Major1WS {
   
 def fib(n:Int): Int = {
 	
-	print(n + " ");
+	
 	if(n==0){
 		1
 	}else if(n==1){
 		1
 	}else{
+
 		fib(n-1) + fib(n-2)
 		
 	}
@@ -18,23 +19,34 @@ def fib(n:Int): Int = {
 
 
 }                                                 //> fib: (n: Int)Int
+def fibPrint(n:Int){
+	if( n == 0 ){
+		print(1)
+	}else{
+		print(fib(n) + ",")
+		fibPrint(n-1)
+	}
+}                                                 //> fibPrint: (n: Int)Unit
 
 
-fib(6)                                            //> 6 5 4 3 2 1 0 1 2 1 0 3 2 1 0 1 4 3 2 1 0 1 2 1 0 res0: Int = 13
+fibPrint(6);                                      //> 13,8,5,3,2,1,1
 
 
 
 def fizzString(fizzString: String): Unit = {
-	if(fizzString.startsWith("f") || fizzString.startsWith("F")){
-		if(fizzString.endsWith("b") || fizzString.endsWith("B")){
-		println("FizzBuzz")
-		}else{
-		println("Fizz")
-		}
-	}else if(fizzString.endsWith("b") || fizzString.endsWith("B")){
-		println("Buzz")
-	}
 	
+	val fizz = fizzString.startsWith("f") || fizzString.startsWith("F");
+	val buzz = fizzString.endsWith("b") || fizzString.endsWith("B");
+	
+	if(fizz && buzz){
+		println("FizzBuzz")
+	}else if(fizz){
+		println("Fizz");
+	}else if(buzz){
+		println("Buzz");
+	}else {
+	  println(fizzString);
+	}
 }                                                 //> fizzString: (fizzString: String)Unit
 
               
@@ -65,7 +77,7 @@ fizzString("fig")                                 //> Fizz
                                                   //| 3
                                                   //| 2
                                                   //| 1
-                                                  //| res1: Int = 120
+                                                  //| res0: Int = 120
 
 
 
@@ -86,5 +98,10 @@ sumDig(11111)                                     //> 11111
                                                   //| 1111
                                                   //| 111
                                                   //| 11
-                                                  //| res2: Int = 5
+                                                  //| res1: Int = 5
+                                                  
+                                                  
+                                                  
+                                                  
+                                                  
 }
